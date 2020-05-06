@@ -17,7 +17,8 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
-import com.meritamerica.assignment6.exceptions.ExceedsCombinedBalanceLimitException;
+import com.merit.assignment6.exceptions.copy.ExceedsCombinedBalanceLimitException;
+
 
 @Entity
 @Table(name = "AccountHolders", catalog = "MeritAmerica")

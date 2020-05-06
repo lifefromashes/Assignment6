@@ -14,9 +14,10 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 
-import com.meritamerica.assignment6.exceptions.ExceedsAvailableBalanceException;
-import com.meritamerica.assignment6.exceptions.NegativeAmountException;
-import com.meritamerica.assignment6.exceptions.NoSuchResourceFoundException;
+import com.merit.assignment6.exceptions.copy.ExceedsAvailableBalanceException;
+import com.merit.assignment6.exceptions.copy.NegativeAmountException;
+import com.merit.assignment6.exceptions.copy.NoSuchResourceFoundException;
+
 
 
 //@Inheritance(strategy = InheritanceType.SINGLE_TABLE)

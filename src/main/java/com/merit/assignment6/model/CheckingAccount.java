@@ -7,15 +7,14 @@ import javax.persistence.Entity;
 
 @Entity
 public class CheckingAccount extends BankAccount {
-	
-
 
 	static final double DEFAULT_INTEREST_RATE = .0001;
-	
-	//@Column(name = "user_id") //foreign key to link to AccountHolders table
+
+	// @Column(name = "user_id") //foreign key to link to AccountHolders table
 	private Integer userId;
-	
-	public CheckingAccount() {}
+
+	public CheckingAccount() {
+	}
 
 	public CheckingAccount(double openingBalance) {
 		super(openingBalance, DEFAULT_INTEREST_RATE);
@@ -29,6 +28,16 @@ public class CheckingAccount extends BankAccount {
 
 	public CheckingAccount(double balance, double interestRate, long accountNumber, Date accountOpenedOn) {
 		super(balance, interestRate, accountNumber, accountOpenedOn);
+	}
+
+	private long accountHolder;
+
+	public long getAccountHolder() {
+		return this.accountHolder;
+	}
+
+	public void setAccountHolder(long n) {
+		this.accountHolder = n;
 	}
 
 }

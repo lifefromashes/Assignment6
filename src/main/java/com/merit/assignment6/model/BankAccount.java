@@ -14,9 +14,9 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 
-import com.merit.assignment6.exceptions.copy.ExceedsAvailableBalanceException;
-import com.merit.assignment6.exceptions.copy.NegativeAmountException;
-import com.merit.assignment6.exceptions.copy.NoSuchResourceFoundException;
+import com.merit.assignment6.exceptions.ExceedsAvailableBalanceException;
+import com.merit.assignment6.exceptions.NegativeAmountException;
+import com.merit.assignment6.exceptions.NoSuchResourceFoundException;
 
 
 

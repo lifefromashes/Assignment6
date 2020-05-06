@@ -55,10 +55,10 @@ public class MeritBankController {
 		return accountHolderRepository.findAll();
 	}
 	
-	@GetMapping(value = "/AccountHolders/{id}")
-	public AccountHolder getAccountHolderById(@PathVariable(name = "id") long id) throws com.merit.assignment6.exceptions.copy.NoSuchResourceFoundException {
-		AccountHolder accthold = accountHolderRepository.findbyId(id);
-		return accthold;
-	}
+//	@GetMapping(value = "/AccountHolders/{id}")
+//	public AccountHolder getAccountHolderById(@PathVariable(name = "id") long id) throws com.merit.assignment6.exceptions.NoSuchResourceFoundException {
+//		AccountHolder accthold = accountHolderRepository.findById(id);
+//		return accthold;
+//	}
 
 }

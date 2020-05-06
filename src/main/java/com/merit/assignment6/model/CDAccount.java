@@ -36,6 +36,16 @@ public class CDAccount extends BankAccount{
 		return this.term;
 	}
 	
+	private long accountHolder;
+
+	public long getAccountHolder() {
+		return this.accountHolder;
+	}
+
+	public void setAccountHolder(long n) {
+		this.accountHolder = n;
+	}
+	
 	
 	
 	

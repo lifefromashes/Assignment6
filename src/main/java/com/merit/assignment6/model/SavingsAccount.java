@@ -25,6 +25,16 @@ public class SavingsAccount extends BankAccount {
 		super(bankAccount.getBalance(), bankAccount.getInterestRate(), bankAccount.getAccountNumber(),
 				bankAccount.getAccountOpenedOn());
 	}
+	
+	private long accountHolder;
+
+	public long getAccountHolder() {
+		return this.accountHolder;
+	}
+
+	public void setAccountHolder(long n) {
+		this.accountHolder = n;
+	}
 
 }
 

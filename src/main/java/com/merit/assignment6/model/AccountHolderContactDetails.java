@@ -25,8 +25,10 @@ public class AccountHolderContactDetails {
 	private String email;
 	private String address;
 	
-	@OneToOne(mappedBy = "accountHolderContactDetails")
+	
+	//@OneToOne(mappedBy = "accountHolderContactDetails")
 	//@JoinColumn(name = "user_id", referencedColumnName = "user_id")
+	@OneToOne(cascade = CascadeType.ALL)
 	private AccountHolder accountHolder;
 	
 	public AccountHolderContactDetails() {}

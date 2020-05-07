@@ -26,7 +26,7 @@ public class AccountHolder implements Comparable<AccountHolder> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "user_id")//primary key
 	private long id;
 
 	@NotBlank(message = "First Name is required")
@@ -45,6 +45,10 @@ public class AccountHolder implements Comparable<AccountHolder> {
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private AccountHolderContactDetails accountHolderContactDetails;
 
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
+//	private List<CheckingAccount> checkingAccounts; // one to many is a list
+
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<CheckingAccount> checkingAccounts;
 
@@ -58,7 +62,6 @@ public class AccountHolder implements Comparable<AccountHolder> {
 		this.checkingAccounts = new ArrayList<>();
 		this.savingsAccounts = new ArrayList<>();
 		this.cdAccounts = new ArrayList<>();
-		// this.accountHolderContactInfo = new AccountHolderContactInfo();
 	}
 
 	public boolean addCheckingAccount(CheckingAccount chkacc) throws ExceedsCombinedBalanceLimitException {
@@ -96,24 +99,24 @@ public class AccountHolder implements Comparable<AccountHolder> {
 
 	public double getCheckingBalance() {
 		double sum = 0;
-		for (BankAccount b : checkingAccounts) {
-			sum += b.getBalance();
+		for (BankAccount bankacc : checkingAccounts) {
+			sum += bankacc.getBalance();
 		}
 		return sum;
 	}
 
 	public double getSavingsBalance() {
 		double sum = 0;
-		for (BankAccount b : savingsAccounts) {
-			sum += b.getBalance();
+		for (BankAccount bankacc : savingsAccounts) {
+			sum += bankacc.getBalance();
 		}
 		return sum;
 	}
 
 	public double getCDBalance() {
 		double sum = 0;
-		for (BankAccount b : cdAccounts) {
-			sum += b.getBalance();
+		for (BankAccount bankacc : cdAccounts) {
+			sum += bankacc.getBalance();
 		}
 		return sum;
 	}
@@ -170,24 +173,24 @@ public class AccountHolder implements Comparable<AccountHolder> {
 		return checkingAccounts;
 	}
 
-	public void setCheckingAccounts(List<CheckingAccount> a) {
-		this.checkingAccounts = a;
+	public void setCheckingAccounts(List<CheckingAccount>chkacc) {
+		this.checkingAccounts = chkacc;
 	}
 
 	public List<SavingsAccount> getSavingsAccounts() {
 		return savingsAccounts;
 	}
 
-	public void setSavingsAccounts(List<SavingsAccount> a) {
-		this.savingsAccounts = a;
+	public void setSavingsAccounts(List<SavingsAccount> savacc) {
+		this.savingsAccounts = savacc;
 	}
 
 	public List<CDAccount> getCdAccounts() {
 		return cdAccounts;
 	}
 
-	public void setCdAccounts(List<CDAccount> a) {
-		this.cdAccounts = a;
+	public void setCdAccounts(List<CDAccount> cdAcc) {
+		this.cdAccounts = cdAcc;
 	}
 
 	public AccountHolderContactDetails getAccountHolderContactDetails() {

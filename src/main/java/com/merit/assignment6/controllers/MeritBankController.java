@@ -94,6 +94,7 @@ public class MeritBankController {
 
 		AccountHolder acctholder = accountHolderRepository.findById(id);
 		acctholder.addCheckingAccount(checkingAccount);
+		checkingAccountRepository.save(checkingAccount);
 		return checkingAccount;
 	}
 
@@ -116,6 +117,7 @@ public class MeritBankController {
 
 		AccountHolder acctholder = accountHolderRepository.findById(id);
 		acctholder.addSavingsAccount(savingsAccount);
+		savingsAccountRepository.save(savingsAccount);
 		return savingsAccount;
 	}
 
@@ -136,6 +138,7 @@ public class MeritBankController {
 
 		AccountHolder acctholder = accountHolderRepository.findById(id);
 		acctholder.addCDAccount(cdAccount);
+		cdAccountRepository.save(cdAccount);
 		return cdAccount;
 	}
 	

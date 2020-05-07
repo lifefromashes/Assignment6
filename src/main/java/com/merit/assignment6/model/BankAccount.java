@@ -39,7 +39,10 @@ public class BankAccount {
 
 	private Date accountOpenedOn;
 	
-	public BankAccount() {}
+	public BankAccount() {
+		this.accountOpenedOn = new Date();
+
+	}
 
 	public BankAccount(double balance, double interestRate, long accountNumber, Date accountOpenedOn) {
 

@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 @Entity
-//@Table(name = "checkingAccount", catalog = "meritamerica")
 public class CheckingAccount extends BankAccount {
 
 	static final double DEFAULT_INTEREST_RATE = .0001;

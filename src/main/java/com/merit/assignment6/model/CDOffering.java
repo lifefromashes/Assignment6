@@ -49,6 +49,23 @@ public class CDOffering {
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public List<CDAccount> getCdAccounts() {
+		return cdAccounts;
+	}
+
+	public void setCdAccounts(List<CDAccount> cdAccounts) {
+		this.cdAccounts = cdAccounts;
+	}
+	
 	
 	
 	

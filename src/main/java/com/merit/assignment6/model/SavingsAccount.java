@@ -3,6 +3,10 @@ package com.merit.assignment6.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class SavingsAccount extends BankAccount {
@@ -10,7 +14,12 @@ public class SavingsAccount extends BankAccount {
 
 	private static final double DEFAULT_INTEREST_RATE = .01;
 	
-	public SavingsAccount() {}
+	@ManyToOne
+	private AccountHolder accountHolders;
+	
+	public SavingsAccount() {
+		super.setInterestRate(DEFAULT_INTEREST_RATE);
+	}
 
 	public SavingsAccount(double balance, double interestRate, long accountNumber, Date accountOpenedOn) {
 		super(balance, interestRate, accountNumber, accountOpenedOn);

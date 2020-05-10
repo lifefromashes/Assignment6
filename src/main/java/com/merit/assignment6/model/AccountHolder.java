@@ -45,10 +45,6 @@ public class AccountHolder implements Comparable<AccountHolder> {
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private AccountHolderContactDetails accountHolderContactDetails;
 
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
-//	private List<CheckingAccount> checkingAccounts; // one to many is a list
-
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<CheckingAccount> checkingAccounts;
 
@@ -57,12 +53,17 @@ public class AccountHolder implements Comparable<AccountHolder> {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<CDAccount> cdAccounts;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<CDOffering> cdOfferings;
 
 	public AccountHolder() {
 		this.checkingAccounts = new ArrayList<>();
 		this.savingsAccounts = new ArrayList<>();
 		this.cdAccounts = new ArrayList<>();
 	}
+	
+	
 
 	public boolean addCheckingAccount(CheckingAccount chkacc) throws ExceedsCombinedBalanceLimitException {
 		if (chkacc == null) {
@@ -193,13 +194,23 @@ public class AccountHolder implements Comparable<AccountHolder> {
 		this.cdAccounts = cdAcc;
 	}
 
+	public List<CDOffering> getCdOfferings() {
+		return cdOfferings;
+	}
+
+	public void setCdOfferings(List<CDOffering> cdOfferings) {
+		this.cdOfferings = cdOfferings;
+	}
+
+	public void setAccountHolderContactDetails(AccountHolderContactDetails accountHolderContactDetails) {
+		this.accountHolderContactDetails = accountHolderContactDetails;
+	}
+
 	public AccountHolderContactDetails getAccountHolderContactDetails() {
 		return accountHolderContactDetails;
 	}
 
-	public void setAccountHolderContactInfo(AccountHolderContactDetails accountHolderContactDetails) {
-		this.accountHolderContactDetails = accountHolderContactDetails;
-	}
+	
 
 	public int getNumberCheckingAccounts() {
 		return this.checkingAccounts.size();

@@ -8,7 +8,7 @@ import com.merit.assignment6.model.CheckingAccount;
 
 
 
-public interface CheckingAccountRepository extends JpaRepository<CheckingAccount, Integer>{
+public interface CheckingAccountRepository extends JpaRepository<CheckingAccount, Long>{
 	List<CheckingAccount> findByAccountHolder(long id);
 
 }

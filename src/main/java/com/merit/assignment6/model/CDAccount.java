@@ -3,12 +3,18 @@ package com.merit.assignment6.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class CDAccount extends BankAccount{
 	
 	private int term;
-	//private long accountHolder;
+	
+	@ManyToOne
+	private AccountHolder accountHolders; /////just have this in other classes!!! no other extra annotations
+	
+	@ManyToOne	
+	private CDOffering cdOfferings;
 
 	public CDAccount() {
 		super();

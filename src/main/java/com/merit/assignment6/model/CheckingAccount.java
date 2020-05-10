@@ -3,16 +3,28 @@ package com.merit.assignment6.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 
 @Entity
 public class CheckingAccount extends BankAccount {
 
 	static final double DEFAULT_INTEREST_RATE = .0001;
+	
+	@ManyToOne
+	private AccountHolder accountHolders;
+
+	
+	
 
 	// @Column(name = "user_id") //foreign key to link to AccountHolders table
-	private Integer userId;
+	//private Integer userId;
 
 	public CheckingAccount() {
+		super.setInterestRate(DEFAULT_INTEREST_RATE);
 	}
 
 	public CheckingAccount(double openingBalance) {

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.merit.assignment6.exceptions.NoSuchResourceFoundException;
 import com.merit.assignment6.model.AccountHolder;
+import com.merit.assignment6.model.AccountHolderContactDetails;
+import com.merit.assignment6.repository.AccountHolderContactDetailsRepository;
 import com.merit.assignment6.repository.AccountHolderRepository;
 
 @RestController
@@ -22,6 +24,9 @@ public class AccountHolderController {
 
 	@Autowired
 	private AccountHolderRepository accountHolderRepository;
+	
+	@Autowired
+	private AccountHolderContactDetailsRepository accountHolderContactDetailsRepository;
 	
 	@PostMapping("/AccountHolders")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -41,4 +46,28 @@ public class AccountHolderController {
 		AccountHolder accthold = accountHolderRepository.findById(id);
 		return accthold;
 	}
+	
+	@GetMapping(value = "/AccountHolders/ContactDetails")
+	@ResponseStatus(HttpStatus.OK)
+	public List<AccountHolderContactDetails> getContactDetails() {
+		//AccountHolderContactDetails ah = new AccountHolderContactDetails();
+		//ah.
+		return accountHolderContactDetailsRepository.findAll();
+	}
+	
+	@PostMapping(value = "/AccountHolders/ContactDetails")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void addContactDetails( @PathVariable(name = "address") String address,
+			@PathVariable(name = "phoneNum") String phoneNum, @PathVariable(name = "email") String email, @RequestBody AccountHolderContactDetails contactDetails) {
+		//AccountHolderContactDetails ah = accountHolderContactDetailsRepository.findById(ah.getId());
+		
+//		ah.setAddress(address);
+//		ah.setPhoneNum(phoneNum);
+//		ah.setEmail(email);
+		
+		accountHolderContactDetailsRepository.save(contactDetails);
+		
+	}
+	
+	
 }
